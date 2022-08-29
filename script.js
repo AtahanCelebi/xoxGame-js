@@ -11,8 +11,16 @@ function xoxGame(){
 }
 
 function nextMove(oneBox){
+    if(oneBox.textContent===""){
     oneBox.textContent = thePlayer;
     changePlayer();
+    }else{
+        alert("Wrong Choose, the block is not empty!!!");
+        oneBox.style.border ="3px solid red"
+        setTimeout(()=> {
+            oneBox.style.border ="1px solid black"
+        },2000)
+    }
 
 }
 
