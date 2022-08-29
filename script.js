@@ -39,7 +39,9 @@ function changePlayer(){
     checkMove();
 
     if (theGame) {
-        playerTurn.textContent = `Game is over, ${winner} Won`
+        playerTurn.setAttribute("class","alert")
+        playerTurn.setAttribute("class","alert-success")
+        playerTurn.textContent = `Game is over, ${winner} Won!!!`
         boxs.forEach(oneBox => oneBox.style.pointerEvents="none")
         
     }
@@ -64,9 +66,28 @@ function checkRows(){
     if (row1 || row2 || row3) {
         theGame = true
     }
-    if (row1) return winner = boxs[0].textContent
-    if (row2) return winner = boxs[3].textContent
-    if (row3) return winner = boxs[6].textContent
+    if (row1) {
+
+        boxs[0].style.background ="#C80D0D";
+        boxs[1].style.background ="#C80D0D";
+        boxs[2].style.background ="#C80D0D";
+        return winner = boxs[0].textContent
+    }
+    if (row2) {
+
+        boxs[3].style.background ="#C80D0D";
+        boxs[4].style.background ="#C80D0D";
+        boxs[5].style.background ="#C80D0D";
+        return winner = boxs[3].textContent
+    }
+    if (row3) {
+
+        boxs[6].style.background ="#C80D0D";
+        boxs[7].style.background ="#C80D0D";
+        boxs[8].style.background ="#C80D0D";
+        return winner = boxs[6].textContent
+    }
+    
 }
 
 function checkCols(){
@@ -80,9 +101,27 @@ function checkCols(){
     if (col1 || col2 || col3) {
         theGame = true
     }
-    if (col1) return winner = boxs[0].textContent
-    if (col2) return winner = boxs[1].textContent
-    if (col3) return winner = boxs[2].textContent
+    if (col1) {
+
+        boxs[0].style.background ="#C80D0D";
+        boxs[3].style.background ="#C80D0D";
+        boxs[6].style.background ="#C80D0D";
+        return winner = boxs[0].textContent
+    }
+    if (col2) {
+
+        boxs[1].style.background ="#C80D0D";
+        boxs[4].style.background ="#C80D0D";
+        boxs[7].style.background ="#C80D0D";
+        return winner = boxs[1].textContent
+    }
+    if (col3) {
+
+        boxs[2].style.background ="#C80D0D";
+        boxs[5].style.background ="#C80D0D";
+        boxs[8].style.background ="#C80D0D";
+        return winner = boxs[2].textContent
+    } 
 }
 
 function checkCross(){
@@ -94,8 +133,21 @@ function checkCross(){
     if (crossline1 || crossline2) {
         theGame = true
     }
-    if (crossline1) return winner = boxs[0].textContent
-    if (crossline2) return winner = boxs[2].textContent
+    if (crossline1) {
+
+        boxs[0].style.background ="#C80D0D";
+        boxs[4].style.background ="#C80D0D";
+        boxs[8].style.background ="#C80D0D";
+        return winner = boxs[0].textContent
+    } 
+    if (crossline2) {
+
+        boxs[2].style.background ="#C80D0D";
+        boxs[4].style.background ="#C80D0D";
+        boxs[6].style.background ="#C80D0D";
+        return winner = boxs[2].textContent
+    } 
+
 }
 xoxGame();
 
