@@ -42,6 +42,7 @@ function changePlayer(){
         playerTurn.setAttribute("class","alert")
         playerTurn.setAttribute("class","alert-success")
         playerTurn.textContent = `Game is over, ${winner} Won!!!`
+        
         boxs.forEach(oneBox => oneBox.style.pointerEvents="none")
         
     }

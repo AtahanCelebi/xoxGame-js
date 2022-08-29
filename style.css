@@ -21,11 +21,19 @@ body {
 
 body {
     background-color: #D95550;
+    font-family: 'DynaPuff', cursive;
+font-family: 'Roboto Slab', serif;
+font-family: 'Silkscreen', cursive;
+
     
 }
 .box {
   border: 1px solid #555;
   background-color: whitesmoke;
   color: black;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 75px;
 }
 
