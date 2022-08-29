@@ -12,7 +12,19 @@ function xoxGame(){
 
 function nextMove(oneBox){
     oneBox.textContent = thePlayer;
+    changePlayer();
 
+}
+
+function changePlayer(){
+    if (thePlayer ==="X"){
+        thePlayer ="O";
+        playerTurn.textContent = `Player Turn: ${thePlayer}`
+    }
+    else if (thePlayer ==="O"){
+        thePlayer ="X";
+        playerTurn.textContent = `Player Turn: ${thePlayer}`
+    }
 }
 
 xoxGame();
