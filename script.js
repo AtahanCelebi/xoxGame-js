@@ -1,14 +1,16 @@
 const boxs = document.querySelectorAll(".box");
 const playerTurn = document.querySelector("#playerTurn");
-let thePlayer = "X";
+
+let counter = localStorage.getItem("counter") ? Number(localStorage.getItem("counter")):0
+let counterDOM = document.querySelector("#playerX")
+
+let thePlayer = "X"; //the starter
 let theGame = false;
 let winner = "";
 
 function xoxGame(){
     playerTurn.innerHTML = `Player Turn: ${thePlayer}`
     boxs.forEach(oneBox => oneBox.addEventListener("click",()=> nextMove(oneBox)))
-
-
 
 }
 
@@ -42,9 +44,12 @@ function changePlayer(){
         playerTurn.setAttribute("class","alert")
         playerTurn.setAttribute("class","alert-success")
         playerTurn.textContent = `Game is over, ${winner} Won!!!`
-        
         boxs.forEach(oneBox => oneBox.style.pointerEvents="none")
-        
+        if(winner=="X"){
+            counter +=1;
+            localStorage.setItem("counter",counter)
+            counterDOM.innerHTML = counter
+        }
     }
 }
 
