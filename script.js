@@ -1,12 +1,21 @@
 const boxs = document.querySelectorAll(".box");
 const playerTurn = document.querySelector("#playerTurn");
-
-let counter = localStorage.getItem("counter") ? Number(localStorage.getItem("counter")):0
-let counterDOM = document.querySelector("#playerX")
-
 let thePlayer = "X"; //the starter
 let theGame = false;
 let winner = "";
+let deneme = document.querySelector("#deneme")
+
+// Player O local Storage
+let counter = localStorage.getItem("counter")? Number(localStorage.getItem("counter")):0
+
+let counterDOM = document.querySelector("#playerX")
+counterDOM.innerHTML = counter
+
+// Player O local Storage
+let counter2= localStorage.getItem("counter2") ? Number(localStorage.getItem("counter2")) :0
+
+let counter2DOM = document.querySelector("#playerY")
+counter2DOM.innerHTML = counter2
 
 function xoxGame(){
     playerTurn.innerHTML = `Player Turn: ${thePlayer}`
@@ -44,12 +53,26 @@ function changePlayer(){
         playerTurn.setAttribute("class","alert")
         playerTurn.setAttribute("class","alert-success")
         playerTurn.textContent = `Game is over, ${winner} Won!!!`
-        boxs.forEach(oneBox => oneBox.style.pointerEvents="none")
-        if(winner=="X"){
-            counter +=1;
-            localStorage.setItem("counter",counter)
-            counterDOM.innerHTML = counter
+        if(winner==="X"){
+            counter = counter +1;
+        localStorage.setItem("counter",counter)
         }
+        if(winner==="O"){
+            counter2 = counter2 +1;
+        localStorage.setItem("counter2",counter2)
+        }
+            var button = document.createElement('button');
+        button.type = 'button';
+        button.innerHTML = 'Restart!';
+        button.className = 'btn-styled';
+        button.onclick = function() {
+            window.location.reload("Refresh")
+        };
+        
+        var container = document.getElementById('deneme');
+        container.appendChild(button);
+        
+        boxs.forEach(oneBox => oneBox.style.pointerEvents="none")
     }
 }
 
