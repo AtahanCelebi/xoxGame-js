@@ -3,6 +3,7 @@ const playerTurn = document.querySelector("#playerTurn");
 let thePlayer = "X"; //the starter
 let theGame = false;
 let winner = "";
+let moveCount = 0;
 let deneme = document.querySelector("#deneme")
 
 // Player O local Storage
@@ -61,7 +62,7 @@ function changePlayer(){
             counter2 = counter2 +1;
         localStorage.setItem("counter2",counter2)
         }
-            var button = document.createElement('button');
+        var button = document.createElement('button');
         button.type = 'button';
         button.innerHTML = 'Restart!';
         button.className = 'btn-styled';
@@ -78,6 +79,23 @@ function changePlayer(){
 
 
 function checkMove(){
+    moveCount++;
+    if(moveCount==9){
+        
+        playerTurn.textContent = `Game is over, Nobody Won!!!`
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.innerHTML = 'Restart!';
+        button.className = 'btn-styled';
+        button.onclick = function() {
+            window.location.reload("Refresh")
+        };
+        
+        var container = document.getElementById('deneme');
+        container.appendChild(button);
+        
+        boxs.forEach(oneBox => oneBox.style.pointerEvents="none")
+    }
     checkRows();
     checkCols();
     checkCross();
